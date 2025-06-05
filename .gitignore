@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Backup and generated files
+*.bak
+*.odt
+*.jpg
+*.png
+*.pyc
+*.pyo
+*.md
+
+# Ignore specific text files
+
+# Ignore specific Python files
+
+# Sensitive or specific local files
+.env
+
+# IDE settings (PyCharm)
+.idea/
+*.iml
