@@ -4,7 +4,7 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 import os
 
-from web_summarizer import summarize_url  # must return a nicely formatted string
+from web_summarizer import summarize_url  # returns a clean, formatted string
 
 def send_email(summary, recipient_email):
     load_dotenv()
@@ -16,22 +16,21 @@ def send_email(summary, recipient_email):
 
     msg = EmailMessage()
     msg.set_content(summary)
-    msg["Subject"] = "Web Summary"
+    msg["Subject"] = "🧠 Web Summary Digest"
     msg["From"] = sender_email
     msg["To"] = recipient_email
 
-    # Gmail SMTP
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_email, password)
         server.send_message(msg)
 
 def main():
-    url = input("Enter the URL to summarize: ").strip()
+    url = input("🔗 Enter the URL to summarize: ").strip()
     summary = summarize_url(url)
     print("\n--- Summary ---\n", summary)
 
-    recipient_email = input("\nEnter your email address to send the summary: ").strip()
+    recipient_email = input("\n📬 Enter your email address to send the summary: ").strip()
     send_email(summary, recipient_email)
     print("✅ Email sent successfully.")
 

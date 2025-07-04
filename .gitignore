@@ -10,7 +10,7 @@ __pycache__/
 *.png
 *.pyc
 *.pyo
-*.md
+# *.md
 
 # Ignore specific text files
 
